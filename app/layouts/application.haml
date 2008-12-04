@@ -1,0 +1,13 @@
+!!!strict
+%html{:style => 'height:100%;'}
+  %head
+    %script{:src => '/public/build/behavior.js', :type => "text/javascript"}
+    %link{:href => '/public/build/style.css', :rel => 'stylesheet', :type =>"text/css"}
+      
+  %body{:style => 'height:100%; margin:0; padding:0;'}
+    = workspace_view 'main' do
+      = split_view do
+        = list_view('notes_list', {:bind => {:contents => 'NotesController.arranged_objects'}}) do
+          = list_item_view({:bind => {:value => 'NotesController.arranged_objects.name'}})
+        = splitter_view
+        = text_view({:bind => {:value => 'NotesController.selection.body'}})

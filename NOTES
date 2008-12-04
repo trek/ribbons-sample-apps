@@ -1,0 +1,14 @@
+We'll include and always load a reset.sass
+
+Generators
+  model
+  controller
+  view
+    directory with behavior.red, style.sass, structure.haml
+    
+  
+Build Process:
+  run all .rb files in app through Red and expose as build.js
+  run all .sass files in all through sass and expose as build.css
+  run all layouts through haml and expose as index.html
+  
