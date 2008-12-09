@@ -1,4 +1,4 @@
-class Model
+class ArrangedObjects < Array
   include Bindable
   include KeyValueObserving
 end

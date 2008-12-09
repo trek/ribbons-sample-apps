@@ -28,17 +28,13 @@ class Ribbon
       r.write build_structure
     end.finish
   end
-  
-  def build_behavior
-    true
-  end
-  
+    
   def application_files
     files_in('app')
   end
   
   def framework_files
-    files_in('lib')
+    ::File.read('lib/ribbons.rb') + "\n"
   end
   
   def files_in(name)
@@ -58,9 +54,13 @@ class Ribbon
     "require 'redshift'\n"
   end
   
+  def reset
+    File.read('lib/assets/reset.sass')
+  end
+  
   def write_style_file(styles)
     File.open(STYLE_FILE, 'w') do |f|
-      f.write Sass::Engine.new(styles).render
+      f.write Sass::Engine.new(reset + styles).render
     end
   end
   

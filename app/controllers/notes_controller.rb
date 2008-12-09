@@ -1,3 +1,5 @@
 class NotesController < ArrayController
-  contents 'ApplicationController.notes'
+  shared_instance
+  bind 'arranged_objects', 'Note.all'
+  outlet :note_list
 end
